@@ -69,7 +69,10 @@ class Renderer
             $this->restoreToBackground($this->framePrevious, imagecolortransparent($this->frameCurrent));
             $this->copyFrameToBuffer($frame);
         } else {
-            throw new \RuntimeException("Disposal method $disposalMethod is not implemented.");
+            //throw new \RuntimeException("Disposal method $disposalMethod is not implemented.");
+            $this->restoreToBackground($this->framePrevious, imagecolortransparent($this->frameCurrent));
+            //$this->copyFrameToBuffer($this->framePrevious);
+            $this->copyFrameToBuffer($frame);
         }
 
         $this->framePrevious = $frame;
